@@ -6,10 +6,16 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: [
-          "Bricolage Grotesque Variable",
-          "Inter Variable",
-          "Inter",
-          ...defaultTheme.fontFamily.sans,
+          "Instrument Sans",
+          {
+            fontVariationSettings: `"wdth" 100`,
+          },
+        ],
+        serif: [
+          "Instrument Serif",
+          {
+            fontVariationSettings: `"wdth" 75`,
+          },
         ],
       },
     },

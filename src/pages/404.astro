@@ -1,15 +1,17 @@
 ---
-import Container from "@components/container.astro";
-import Layout from "@layouts/Layout.astro";
+import Layout from "../layouts/Base.astro";
+import Container from "../components/Container.astro";
+
+const seo = {
+  title: "Uh Oh! Page Not Found",
+  description: "This is a starter repo for an blog built with Astro including open graph tags, canonical urls, RSS, sitemap support."
+}
 ---
 
-<Layout title="404 Not Found">
+<Layout seo={seo}>
   <Container>
-    <div class="min-h-[calc(100vh-16rem)] flex items-center justify-center">
-      <div class="mt-16 text-center">
-        <h1 class="text-4xl lg:text-5xl font-bold lg:tracking-tight">404</h1>
-        <p class="text-lg mt-4 text-slate-600">Page not found.</p>
-      </div>
-    </div>
+    <h1>404</h1>
+    <p>Uh Oh! We couldn't find the page you were looking for</p>
+    <a href="/">Return Home</a>
   </Container>
 </Layout>
