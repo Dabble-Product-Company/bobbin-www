@@ -2,10 +2,10 @@
 import { c as createAstro, a as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_CQoEOmdl.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Container, a as $$Base } from '../chunks/Container_iK0zBlAJ.mjs';
+import { $ as $$Container, a as $$Base } from '../chunks/Container_CJO2gEV0.mjs';
 export { renderers } from '../renderers.mjs';
 
-const $$Astro = createAstro("https://bobbin.app");
+const $$Astro = createAstro("https://bobbin.app/");
 const $$404 = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$404;

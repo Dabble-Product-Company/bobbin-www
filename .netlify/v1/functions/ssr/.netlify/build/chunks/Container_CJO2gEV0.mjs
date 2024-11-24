@@ -14,7 +14,7 @@ const settings = {
   twitterURL: `https://x.com/bobbinapp`
 };
 
-const $$Astro$1 = createAstro("https://bobbin.app");
+const $$Astro$1 = createAstro("https://bobbin.app/");
 const $$BaseHead = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro$1, $$props, $$slots);
   Astro2.self = $$BaseHead;
@@ -30,7 +30,7 @@ const $$Footer = createComponent(($$result, $$props, $$slots) => {
 &copy; ${(/* @__PURE__ */ new Date()).getFullYear()} ${settings.name} </p> </footer>`;
 }, "/Users/mattcastillo/Projects/bobbin-www/src/components/Footer.astro", void 0);
 
-const $$Astro = createAstro("https://bobbin.app");
+const $$Astro = createAstro("https://bobbin.app/");
 const $$Base = createComponent(($$result, $$props, $$slots) => {
   const Astro2 = $$result.createAstro($$Astro, $$props, $$slots);
   Astro2.self = $$Base;

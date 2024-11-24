@@ -2,7 +2,7 @@
 import { a as createComponent, r as renderTemplate, d as renderComponent, m as maybeRenderHead } from '../chunks/astro/server_CQoEOmdl.mjs';
 import 'kleur/colors';
 import 'html-escaper';
-import { $ as $$Container, a as $$Base, s as settings } from '../chunks/Container_iK0zBlAJ.mjs';
+import { $ as $$Container, a as $$Base, s as settings } from '../chunks/Container_CJO2gEV0.mjs';
 export { renderers } from '../renderers.mjs';
 
 const $$Index = createComponent(($$result, $$props, $$slots) => {
