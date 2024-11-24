@@ -1,7 +1,5 @@
 # build output
-dist/
-.output/
-.astro
+dist
 
 # dependencies
 node_modules/
