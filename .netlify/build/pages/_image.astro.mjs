@@ -1,6 +1,6 @@
-import { A as AstroError, f as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, E as ExpectedImageOptions, g as ExpectedImage, h as ExpectedNotESMImage, r as resolveSrc, i as isRemoteImage, j as isESMImportedImage, k as isLocalService, D as DEFAULT_HASH_PROPS, l as InvalidImageService, m as ImageMissingAlt, n as isRemoteAllowed } from '../chunks/astro/assets-service_Bmn5NT17.mjs';
 import { isRemotePath } from '@astrojs/internal-helpers/path';
-import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, s as spreadAttributes } from '../chunks/astro/server_BDxqZOi7.mjs';
+import { A as AstroError, f as NoImageMetadata, F as FailedToFetchRemoteImageDimensions, E as ExpectedImageOptions, g as ExpectedImage, h as ExpectedNotESMImage, r as resolveSrc, i as isRemoteImage, j as isESMImportedImage, k as isLocalService, D as DEFAULT_HASH_PROPS, l as InvalidImageService, m as ImageMissingAlt, n as isRemoteAllowed } from '../chunks/astro/assets-service_ablqFeBi.mjs';
+import { c as createAstro, a as createComponent, r as renderTemplate, m as maybeRenderHead, b as addAttribute, s as spreadAttributes } from '../chunks/astro/server_CQoEOmdl.mjs';
 import 'html-escaper';
 import 'clsx';
 import * as mime from 'mrmime';
@@ -541,9 +541,9 @@ function parseViewbox(viewbox) {
   };
 }
 function parseAttributes(root) {
-  const width = root.match(extractorRegExps.width);
-  const height = root.match(extractorRegExps.height);
-  const viewbox = root.match(extractorRegExps.viewbox);
+  const width = extractorRegExps.width.exec(root);
+  const height = extractorRegExps.height.exec(root);
+  const viewbox = extractorRegExps.viewbox.exec(root);
   return {
     height: height && parseLength(height[2]),
     viewbox: viewbox && parseViewbox(viewbox[2]),
@@ -579,7 +579,7 @@ const SVG = {
   // Scan only the first kilo-byte to speed up the check on larger files
   validate: (input) => svgReg.test(toUTF8String(input, 0, 1e3)),
   calculate(input) {
-    const root = toUTF8String(input).match(extractorRegExps.root);
+    const root = extractorRegExps.root.exec(toUTF8String(input));
     if (root) {
       const attrs = parseAttributes(root[0]);
       if (attrs.width && attrs.height) {
@@ -766,7 +766,7 @@ const globalOptions = {
 function lookup(input) {
   const type = detector(input);
   if (typeof type !== "undefined") {
-    if (globalOptions.disabledTypes.indexOf(type) > -1) {
+    if (globalOptions.disabledTypes.includes(type)) {
       throw new TypeError("disabled file type: " + type);
     }
     const size = typeHandlers.get(type).calculate(input);
@@ -795,7 +795,7 @@ async function imageMetadata(data, src) {
       format: type,
       orientation
     };
-  } catch (e) {
+  } catch {
     throw new AstroError({
       ...NoImageMetadata,
       message: NoImageMetadata.message(src)
@@ -830,7 +830,7 @@ async function inferRemoteSize(url) {
           await reader.cancel();
           return dimensions;
         }
-      } catch (error) {
+      } catch {
       }
     }
   }
@@ -844,7 +844,7 @@ async function getConfiguredImageService() {
   if (!globalThis?.astroAsset?.imageService) {
     const { default: service } = await import(
       // @ts-expect-error
-      '../chunks/astro/assets-service_Bmn5NT17.mjs'
+      '../chunks/astro/assets-service_ablqFeBi.mjs'
     ).then(n => n.s).catch((e) => {
       const error = new AstroError(InvalidImageService);
       error.cause = e;
@@ -881,7 +881,7 @@ async function getImage$1(options, imageConfig) {
     ...options,
     src: await resolveSrc(options.src)
   };
-  if (options.inferSize && isRemoteImage(resolvedOptions.src)) {
+  if (options.inferSize && isRemoteImage(resolvedOptions.src) && isRemotePath(resolvedOptions.src)) {
     const result = await inferRemoteSize(resolvedOptions.src);
     resolvedOptions.width ??= result.width;
     resolvedOptions.height ??= result.height;
@@ -1050,7 +1050,7 @@ async function loadRemoteImage(src, headers) {
       return void 0;
     }
     return await res.arrayBuffer();
-  } catch (err) {
+  } catch {
     return void 0;
   }
 }
