@@ -15,21 +15,19 @@ const seo = {
 <Layout
   seo={seo}
 >
-  <Container class="flex flex-col">
-    <div class="flex flex-col content-center self-center justify-center space-y-8 grow my-auto py-16">
-      <div class="flex justify-center max-h-96 lg:max-h-[32rem] w-full max-w-xl mx-auto relative border-b border-neutral-200 dark:border-neutral-800">
-        <img src="/screenshot.png" alt="Screenshot from Bobbin app" class="object-cover object-top max-w-xs"/>
-        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-neutral-100 dark:to-neutral-950 h-1/2 top-1/2"></div>
+  <Container>
+    <div class="flex flex-col content-center self-center justify-center -space-y-16 md:space-y-4 my-auto md:py-16 h-[90%]">
+      <div class="flex justify-center min-h-64 max-h-[40rem] grow w-full max-w-md mx-auto relative">
+        <img src="/screenshot.png" alt="Screenshot from Bobbin app" class="object-cover md:object-contain object-top px-4 pt-4"/>
+        <div class="absolute inset-x-0 bottom-0 h-40 bg-gradient-to-t from-neutral-100 dark:from-neutral-950 to-transparent visible md:invisible"></div>
       </div>
-      <div class="flex flex-col items-center justify-center space-y-8">
+      <div class="flex flex-col items-center justify-center space-y-4 py-4 z-10">
         <h5 class="text-sm text-center font-medium bg-neutral-200 dark:bg-neutral-800 rounded-full px-4 py-2">Coming soon</h5>
-        <h1 class="text-7xl text-center tracking-tight font-serif">Sewing made simple</h1>
+        <h1 class="text-5xl md:text-7xl text-center tracking-tight font-serif">Sewing made simple</h1>
         <div class="max-w-xl space-y-4">
-
-          <p class="text-xl text-center text-neutral-600 dark:text-neutral-400">
+          <p class="text-lg md:text-xl text-center text-neutral-600 dark:text-neutral-400">
               {title} is the all-in-one app to help you plan, organize, and finish your sewing projects.
           </p>
-
         </div>
       </div>
     </div>

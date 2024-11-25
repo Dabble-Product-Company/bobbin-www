@@ -3,7 +3,7 @@
   "version": "v1.4.0",
   "private": false,
   "scripts": {
-    "start": "astro dev",
+    "dev": "astro dev --host",
     "build": "astro build",
     "format": "npx prettier --write ."
   },

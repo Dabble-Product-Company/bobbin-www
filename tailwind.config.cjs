@@ -16,6 +16,9 @@ module.exports = {
             fontVariationSettings: `"wdth" 75`,
           },
         ],
+        display: [
+          "Climate Crisis"
+        ],
       },
     },
   },
