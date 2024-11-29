@@ -5,6 +5,7 @@
 :root {
   --container-width: 960px;
   --container-padding: 1rem;
+  overscroll-behavior: none;
 }
 
 html,
