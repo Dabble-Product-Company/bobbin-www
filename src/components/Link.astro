@@ -2,10 +2,8 @@
 const {href} = Astro.props;
 const {external} = Astro.props;
 ---
-
 <a href={href}
 target={external ? "_blank" : undefined} 
 rel={external ? "noopener noreferrer" : undefined} 
 class="hover:opacity-60 transition-opacity duration-200">
 <slot/></a>
-
