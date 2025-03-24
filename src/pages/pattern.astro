@@ -1,19 +1,10 @@
 ---
 import Layout from "../layouts/Page.astro";
 import Container from "../components/Container.astro";
-import settings from "../data/settings";
 import Content from "../links/pattern.md";
-
-const title = settings.title;
-const description = settings.description;
-
-const seo = {
-  title: title,
-  description: description
-}
 ---
 
-<Layout seo={seo}>
+<Layout>
   <Container>
     <div class="prose prose-neutral dark:prose-invert">
         <Content />
