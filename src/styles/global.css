@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "tailwindcss-intersect";
 
 @layer base {
   html,
@@ -26,20 +27,25 @@
 }
 
 @layer components {
+  .full-width{
+    @apply relative w-[100vw] left-[50%] right-[50%] -ml-[50vw] -mr-[50vw];
+  }
     .typography{
+      @apply text-pretty;
       p {
         font-size: var(--text-base);
-        @apply leading-relaxed my-2;
+        @apply leading-relaxed mt-4;
       }
       h1, h2, h3 {
         font-family: var(--font-serif);
         @apply leading-[1.2];
-        @apply tracking-[-3%];
+        @apply -tracking-[0.02em];
+        @apply mt-6;
       }
       h1 {
-        font-size: var(--text-4xl);
-        font-weight: 600;
+        font-weight: 500;
         font-family: var(--font-serif);
+        @apply -tracking-[0.04em] text-5xl md:text-6xl;
       }
       h2 {
         font-size: var(--text-2xl);
@@ -47,11 +53,12 @@
       }
       h3 {
         font-size: var(--text-xl);
-        font-weight: 700;
+        font-weight: 600;
       }
       h4 {
         font-size: var(--text-lg);
         font-weight: 400;
+        @apply -tracking-[0.02em];
       }
       h5 {
         font-size: var(--text-base);
@@ -60,10 +67,7 @@
         font-size: var(--text-sm);
       }
     }
-    .typography-primary {
-      @apply text-neutral-950;
-    }
     .typography-secondary {
-      @apply text-neutral-600;
+      @apply opacity-65;
     }
 }
