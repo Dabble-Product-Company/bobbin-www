@@ -1,21 +1,22 @@
 ---
 import Link from "./Link.astro";
+import Container from "./Container.astro";
 ---
 
-<footer class="p-8 w-full text-neutral-700 dark:text-neutral-300">
-    <div class="flex flex-col md:flex-row justify-between items-center gap-4 max-w-2xl mx-auto">
-        <div class="flex flex-row items-center gap-0">
-            <p class="text-neutral-500">
-                Made by  
+<footer class="py-8 w-full">
+    <Container>
+        <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex flex-row items-center gap-0">
+                <p class="text-neutral-500">
+                    From  
             </p>
             <Link href="https://dabble.fyi" external>
-                <img src="../../dabble.svg" alt="Dabble" class="max-h-8 inline-block dark:invert" />
+                <img src="../../dabble.svg" alt="Dabble" class="max-h-8 inline-block" />
             </Link>
         </div>
-        <div class="flex flex-row items-center gap-4 text-sm  grow justify-end">
-            <h4><Link href="/privacy">Privacy Policy</Link></h4>
-            <h4><Link href="/terms">Terms & Conditions</Link></h4>
+        <div class="flex flex-row items-center gap-4 grow justify-end">
+            <h6><Link href="/privacy">Privacy Policy</Link></h6>
+            <h6><Link href="/terms">Terms & Conditions</Link></h6>
         </div>
-        
-    </div>
+    </Container>
 </footer>

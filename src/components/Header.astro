@@ -1,7 +1,33 @@
 ---
 import Link from "./Link.astro";
+import Container from "./Container.astro";
+const navLinks: { title: string; href: string }[] = [
+  {
+    title: "Features",
+    href: "/",
+  },
+  {
+    title: "Contact",
+    href: "mailto:info@bobbin.app",
+  },
+  {
+    title: "FAQ",
+    href: "/faq",
+  }
+];
 ---
 
-<header class="flex justify-center w-full m-auto p-8 border-b border-neutral-200 dark:border-neutral-800">
-  <Link href="/">Bobbin</Link>
+<header class="flex w-full m-auto py-8">
+  <Container>
+    <div class="w-full flex justify-between items-center">
+      <Link href="/" class="h-8">
+        <img src="/logo.svg" alt="Bobbin" class="h-4" />
+      </Link>
+      <div class="flex gap-8">
+        {navLinks.map((navLink) => (
+          <Link href={navLink.href}><h4>{navLink.title}</h4></Link>
+        ))}
+      </div>
+    </div>
+  </Container>
 </header>

@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Base.astro";
 import Container from "../components/Container.astro";
+import Divider from "../components/Divider.astro";
 import settings from "../data/settings";
 
 const title = settings.title;
@@ -16,19 +17,65 @@ const seo = {
   seo={seo}
 >
   <Container>
-    <div class="flex flex-col content-center self-center justify-center -space-y-12 my-8 h-full">
-      <div class="flex justify-center max-h-[36rem] grow w-full max-w-md mx-auto relative">
-        <img src="/screenshot.png" alt="Screenshot from Bobbin app" class="object-cover object-top px-4 pt-4"/>
-        <div class="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-neutral-100 dark:from-neutral-950 to-transparent visible"></div>
+    <div class="w-full h-[720px] relative overflow-hidden">
+      <div class="flex flex-col bg-linear-to-r from-neutral-100 from-25% to-transparent h-full w-1/2">
+        <div class="flex flex-col max-w-sm my-auto">
+          <h1 class="text-5xl md:text-7xl leading-[1.1] pb-8">
+            Your sewing,
+            <br />
+            simplified
+          </h1>
+          <h4 class="typography-secondary">
+            Bobbin is the best app to plan your sewing projects, organize your stash of patterns and fabrics, and find inspiration for your next make
+          </h4>
+        </div>
+        <div class="my-auto flex flex-col gap-4 items-start">
+          <img src="../../public/appstoreBadge.svg" alt="Download on the app store" class="h-12 m-0">
+          <h5 class="typography-secondary">
+            Available on iOS and iPadOS
+          </h5>
+        </div>
       </div>
-      <div class="flex flex-col items-center justify-center space-y-4 md:space-y-8 p-6 pb-12 z-10">
-        <h5 class="text-sm text-center font-medium bg-neutral-200/50 dark:bg-neutral-800/50 backdrop-blur-sm rounded-full px-4 py-2 border border-neutral-300 dark:border-neutral-700">Coming soon</h5>
-        <h1 class="text-5xl md:text-7xl text-center tracking-tight font-serif">Sewing made simple</h1>
-        <p class="text-lg md:text-xl text-center text-neutral-600 dark:text-neutral-400">
-            {title} is the all-in-one app to help you plan, organize, and finish your sewing projects.
-        </p>
+      <div class="w-[1440px] h-[720px] absolute top-0 -z-10">
+        <spline-viewer loading-anim-type="spinner-small-dark" url="https://prod.spline.design/3JinmKNyZGInVGXC/scene.splinecode"></spline-viewer>
+      </div>
+    </div>
+    <Divider />
+    <div class="flex flex-col">
+      <h2>Features</h2>
+      <div class="flex flex-col md:flex-row gap-8 my-8 ">
+        <img src="../../features/feature_01.png" alt="Manage your projects" class="w-full md:w-1/2" />
+        <div class="flex flex-col gap-4 my-auto text-balance">
+          <h3>Manage your makes, from concept to closet</h3>
+          <h4 class="typography-secondary">
+            Projects give you a home to plan your ideas, document progress, and finish your makes
+          </h4>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row-reverse gap-8 my-8 ">
+        <img src="../../features/feature_01.png" alt="Manage your projects" class="w-full md:w-1/2" />
+        <div class="flex flex-col gap-4 my-auto">
+          <h3 class="text-balance">Your entire stash of patterns & fabrics, in your pocket
+          </h3>
+          <h4 class="typography-secondary">
+            Projects give you a home to plan your ideas, document progress, and finish your makes
+          </h4>
+        </div>
+      </div>
+
+      <div class="flex flex-col md:flex-row gap-8 my-8 ">
+        <img src="../../features/feature_01.png" alt="Manage your projects" class="w-full md:w-1/2" />
+        <div class="flex flex-col gap-4 my-auto">
+          <h3 class="text-balance">Discover new patterns & find your next project
+          </h3>
+          <h4 class="typography-secondary">
+            Browse thousands of patterns in Bobbin’s database — sourced from your favorite big-name brands and indie pattern makers
+          </h4>
+        </div>
       </div>
     </div>
     
   </Container>
 </Layout>
+
