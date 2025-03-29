@@ -2,6 +2,7 @@
 import Layout from "../layouts/Base.astro";
 import Container from "../components/Container.astro";
 import Divider from "../components/Divider.astro";
+import Feature from "../components/Feature.astro";
 import settings from "../data/settings";
 import { Link, Heart } from 'lucide-react';
 const title = settings.title;
@@ -25,7 +26,7 @@ const seo = {
             <br />
             simplified
           </h1>
-          <h4 class="typography-secondary">
+          <h4 class="typography-secondary text-xl font-normal">
             Bobbin is the best app to plan your sewing projects, organize your stash of patterns and fabrics, and find inspiration for your next make
           </h4>
         </div>
@@ -42,64 +43,53 @@ const seo = {
     </div>
 
     <div class="flex flex-col my-16">
-      <div class="flex flex-col md:flex-row gap-8 my-8">
-        <div class="flex flex-col gap-4 my-auto text-balance w-full -rotate-3 intersect:rotate-3 transition duration-500 ease-in intersect-half intersect-once">
-          <img src="../../features/feature1.png" alt="Manage your projects" class="object-cover h-full w-full p-24 drop-shadow-md" />
-        </div>
-        
-        <div class="flex flex-col gap-4 my-auto text-balance w-full">
-          <h3>Manage your makes, from concept to closet</h3>
-          <h4 class="typography-secondary">
-            Projects give you a home to plan your ideas, document progress, and finish your makes
-          </h4>
-        </div>
-      </div>
+      <Feature
+        eyebrow="Projects"
+        title="Manage your makes, from concept to closet"
+        description="Projects give you a home to plan your ideas, document progress, and finish your makes"
+        imageSrc="../../features/feature1.png"
+        backgroundImageSrc="../../features/feature-bg1.png"
+        imageAlt="Manage your projects"
+      />
 
-      <div class="flex flex-col md:flex-row-reverse gap-8 my-8 ">
-        <div class="flex flex-col gap-4 my-auto text-balance w-full rotate-3 intersect:-rotate-3 transition duration-500 ease-in intersect-half intersect-once">
-          <img src="../../features/feature2.png" alt="Your stash in your pocket" class="object-cover h-full w-full p-24 drop-shadow-md" />
-        </div>
-        <div class="flex flex-col gap-4 my-auto text-balance w-full">
-          <h3 class="text-balance">Your entire stash of patterns & fabrics, in your pocket
-          </h3>
-          <h4 class="typography-secondary">
-            Projects give you a home to plan your ideas, document progress, and finish your makes
-          </h4>
-        </div>
-      </div>
+      <Feature
+        eyebrow="Stash"
+        title="Your entire stash, in your pocket"
+        description="Keep track of every fabric and pattern in your stash — all in an easy-to-use interface"
+        imageSrc="../../features/feature2.png"
+        backgroundImageSrc="../../features/feature-bg2.png"
+        imageAlt="Your stash in your pocket"
+        isReversed={true}
+      />
 
-      <div class="flex flex-col md:flex-row gap-8 my-8 ">
-        <div class="flex flex-col gap-4 my-auto text-balance w-full -rotate-3 intersect:rotate-3 transition duration-500 ease-in intersect-half intersect-once">
-          <img src="../../features/feature3.png" alt="Discover new patterns" class="object-cover h-full w-full p-24 drop-shadow-md" />
-        </div>
-        <div class="flex flex-col gap-4 my-auto text-balance w-full">
-          <h3 class="text-balance">Discover new patterns & find your next project
-          </h3>
-          <h4 class="typography-secondary">
-            Browse thousands of patterns in Bobbin's database — sourced from your favorite big-name brands and indie pattern makers
-          </h4>
-        </div>
-      </div>
+      <Feature
+        eyebrow="Explore"
+        title="Discover new patterns & find your next project"
+        description="Browse thousands of patterns in Bobbin's database — sourced from your favorite big-name brands and indie pattern makers"
+        imageSrc="../../features/feature3.png"
+        backgroundImageSrc="../../features/feature-bg3.png"
+        imageAlt="Discover new patterns"
+      />
     </div>
 
     <div class="flex flex-col h-[720px] full-width relative overflow-hidden">
       
       <div class="flex flex-col max-w-xl mx-auto text-center text-white z-10 space-y-3 my-8">
-        <h3 class="typography-secondary">New</h3>
-        <h1 class="mt-0">Collage Mode</h1>
-        <h4 class="typography-secondary">
+        <h3 class="typography-secondary">Featuring</h3>
+        <h2 class="mt-0 italic">Collage Mode</h2>
+        <p class="typography-secondary">
           Bring your ideas to life with interactive collages, assembled from photos, stickers, text, and drawings
-        </h4>
+        </p>
       </div>
 
       <img src="../../noise.png" alt="Noise overlay" class="w-full h-full object-cover z-0 absolute top-0 left-0" />
 
-      <img src="../../collage.jpg" alt="Collage" class="w-vw min-h-full object-cover -z-10 absolute top-0 blur-sm scale-110 intersect:blur-none intersect:scale-100 intersect-half intersect-once transition duration-500 ease-in" />
+      <img src="../../collage.jpg" alt="Collage" class="w-vw min-h-full object-cover -z-10 absolute top-0 blur-sm scale-105 intersect:blur-none intersect:scale-100 intersect-half transition duration-500 ease-in" />
     </div>
 
     <div class="flex flex-col">
       <div class="flex flex-col text-center z-10 space-y-8 my-8 mx-auto">
-        <h2 class="typography-secondary">And more...</h2>
+        <h3 class="typography-secondary">And more...</h3>
         <div class="flex flex-col md:flex-row gap-8 flex-wrap justify-center text-center">
           
           <div class="flex flex-col w-full max-w-xs mx-auto justify-center items-center space-y-4">
@@ -107,10 +97,10 @@ const seo = {
               <img src="../../icons/import.svg" alt="Import icon" class="w-8 h-8" />
             </div>
             <div class="flex flex-col gap-0 grow">
-              <h3>Import from the web</h3>
-              <p class="typography-secondary">
+              <h4>Import from the web</h4>
+              <h5 class="typography-secondary">
                 Quickly save patterns and fabrics to your stash by pasting their URL
-              </p>
+              </h5>
             </div>
           </div>
           <div class="flex flex-col w-full max-w-xs mx-auto justify-center items-center space-y-4">
@@ -118,10 +108,10 @@ const seo = {
               <img src="../../icons/filter.svg" alt="Filter icon" class="w-8 h-8" />
             </div>
             <div class="flex flex-col gap-0 grow">
-              <h3>Search, sort, filter</h3>
-              <p class="typography-secondary">
+              <h4>Search, sort, filter</h4>
+              <h5 class="typography-secondary">
                 With an organized stash, finding the perfect pattern or fabric for a project has never been easier
-              </p>
+              </h5>
             </div>
           </div>
           <div class="flex flex-col w-full max-w-xs mx-auto justify-center items-center space-y-4">
@@ -129,10 +119,10 @@ const seo = {
               <img src="../../icons/notes.svg" alt="Notes icon" class="w-8 h-8" />
             </div>
             <div class="flex flex-col gap-0 grow">
-              <h3>Project photos & notes</h3>
-              <p class="typography-secondary">
+              <h4>Project photos & notes</h4>
+              <h5 class="typography-secondary">
                 Document your project progress with photos & notes
-              </p>
+              </h5>
             </div>
           </div>
           <div class="flex flex-col w-full max-w-xs mx-auto justify-center items-center space-y-4">
@@ -140,10 +130,10 @@ const seo = {
               <img src="../../icons/icloud.svg" alt="iCloud icon" class="w-8 h-8" />
             </div>
             <div class="flex flex-col gap-0 grow">
-              <h3>iCloud Sync</h3>
-              <p class="typography-secondary">
+              <h4>iCloud Sync</h4>
+              <h5 class="typography-secondary">
                 Your projects and stash are automatically synced across all of your devices
-              </p>
+              </h5>
             </div>
           </div>
           <div class="flex flex-col w-full max-w-xs mx-auto justify-center items-center space-y-4">
@@ -151,22 +141,22 @@ const seo = {
               <img src="../../icons/private.svg" alt="Private icon" class="w-8 h-8" />
             </div>
             <div class="flex flex-col gap-0 grow">
-              <h3>Private by design</h3>
-              <p class="typography-secondary">
+              <h4>Private by design</h4>
+              <h5 class="typography-secondary">
                 Bobbin will never display ads and doesn't collect or share any user data
-              </p>
+              </h5>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-col full-width bg-neutral-300 py-24 space-y-8">
-      <div class="flex flex-col max-w-xl mx-auto text-center justify-center  space-y-4">
+    <div class="flex flex-col full-width bg-neutral-300 py-24 space-y-8 text-balance">
+      <div class="flex flex-col max-w-3xl mx-auto text-center justify-center  space-y-4">
         <h2>Designed for iPhone & iPad</h2>
-        <h4 class="typography-secondary">
+        <p class="typography-secondary">
           Bobbin was designed from the ground up to work across devices and fit perfectly in any workflow
-        </h4>
+        </p>
         
       </div>
       <img src="../../devices.png" alt="Devices" class="w-full max-h-96 object-contain" />

@@ -1,0 +1,32 @@
+---
+interface Props {
+  eyebrow: string;
+  title: string;
+  description: string;
+  imageSrc: string;
+  backgroundImageSrc: string;
+  imageAlt: string;
+  isReversed?: boolean;
+}
+
+const { eyebrow, title, description, imageSrc, backgroundImageSrc, imageAlt, isReversed = false } = Astro.props;
+---
+
+<div class="full-width">
+  <div class={`flex flex-col md:flex-row gap-8 my-8 p-8 relative max-w-7xl mx-auto ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+    <div class="flex flex-col gap-4 my-auto w-full grow max-h-[640px] static justify-center items-center">
+      <img src={imageSrc} alt={imageAlt} class="object-contain h-full w-full max-h-[640px] p-0 drop-shadow-md -rotate-3 ${isReversed ? 'rotate-3' : ''}`} intersect:rotate-0 transition duration-500 ease-in intersect-half intersect-once" />
+      <img src={backgroundImageSrc} alt={imageAlt} class="absolute top-0 object-cover -z-10 h-full max-h-[640px]" />
+    </div>
+    <div class="flex text-balance w-full max-w-md relative self-center h-auto">
+      <div class="flex flex-col gap-4 my-auto p-16">
+        <h6 class="text-balance m-0 uppercase font-semibold tracking-widest">{eyebrow}</h6>
+        <h3 class="text-balance m-0">{title}</h3>
+        <p class="typography-secondary">
+          {description}
+        </p>
+      </div>
+      <img src="../../features/ripped3.png" alt={imageAlt} class="absolute top-0 object-fill -z-10 w-full h-full ${isReversed ? 'rotate-180' : ''}`}" />
+    </div>
+  </div>
+</div> 
