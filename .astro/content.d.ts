@@ -32,7 +32,9 @@ declare module 'astro:content' {
 	type Flatten<T> = T extends { [K: string]: infer U } ? U : never;
 
 	export type CollectionKey = keyof AnyEntryMap;
-	export type CollectionEntry<C extends CollectionKey> = Flatten<AnyEntryMap[C]>;
+	export type CollectionEntry<C extends CollectionKey> = Flatten<
+		AnyEntryMap[C]
+	>;
 
 	export type ContentCollectionKey = keyof ContentEntryMap;
 	export type DataCollectionKey = keyof DataEntryMap;
@@ -70,12 +72,15 @@ declare module 'astro:content' {
 		: Promise<CollectionEntry<C> | undefined>;
 
 	/** @deprecated Use `getEntry` instead. */
-	export function getDataEntryById<C extends keyof DataEntryMap, E extends keyof DataEntryMap[C]>(
-		collection: C,
-		entryId: E,
-	): Promise<CollectionEntry<C>>;
+	export function getDataEntryById<
+		C extends keyof DataEntryMap,
+		E extends keyof DataEntryMap[C],
+	>(collection: C, entryId: E): Promise<CollectionEntry<C>>;
 
-	export function getCollection<C extends keyof AnyEntryMap, E extends CollectionEntry<C>>(
+	export function getCollection<
+		C extends keyof AnyEntryMap,
+		E extends CollectionEntry<C>,
+	>(
 		collection: C,
 		filter?: (entry: CollectionEntry<C>) => entry is E,
 	): Promise<E[]>;
@@ -148,20 +153,21 @@ declare module 'astro:content' {
 		collection: C,
 	): import('astro/zod').ZodEffects<import('astro/zod').ZodString, never>;
 
-	type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R ? R : T;
-	type InferEntrySchema<C extends keyof AnyEntryMap> = import('astro/zod').infer<
-		ReturnTypeOrOriginal<Required<ContentConfig['collections'][C]>['schema']>
-	>;
+	type ReturnTypeOrOriginal<T> = T extends (...args: any[]) => infer R
+		? R
+		: T;
+	type InferEntrySchema<C extends keyof AnyEntryMap> =
+		import('astro/zod').infer<
+			ReturnTypeOrOriginal<
+				Required<ContentConfig['collections'][C]>['schema']
+			>
+		>;
 
-	type ContentEntryMap = {
-		
-	};
+	type ContentEntryMap = {};
 
-	type DataEntryMap = {
-		
-	};
+	type DataEntryMap = {};
 
 	type AnyEntryMap = ContentEntryMap & DataEntryMap;
 
-	export type ContentConfig = typeof import("../src/content.config.mjs");
+	export type ContentConfig = typeof import('../src/content.config.mjs');
 }

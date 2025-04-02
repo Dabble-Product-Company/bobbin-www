@@ -7,18 +7,23 @@ import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://bobbin.app/',
+	site: 'https://bobbin.app/',
 
-  integrations: [ mdx(), sitemap(), partytown({
-    config: {
-      forward: ['dataLayer.push']
-    }
-  }), react()],
+	integrations: [
+		mdx(),
+		sitemap(),
+		partytown({
+			config: {
+				forward: ['dataLayer.push'],
+			},
+		}),
+		react(),
+	],
 
-  output: 'server',
-  adapter: cloudflare(),
+	output: 'server',
+	adapter: cloudflare(),
 
-  vite: {
-    plugins: [tailwindcss()],
-  },
+	vite: {
+		plugins: [tailwindcss()],
+	},
 });
