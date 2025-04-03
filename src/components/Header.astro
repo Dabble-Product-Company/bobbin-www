@@ -20,7 +20,8 @@ const navLinks: { title: string; href: string }[] = [
 const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<header class="flex w-full m-auto px-2 md:px-0 py-6 md:py-8 bg-transparent  hover:bg-neutral-100 transition-all duration-300 relative">
+<header
+	class="flex w-full m-auto px-2 md:px-0 py-6 md:py-8 bg-transparent hover:bg-neutral-100 transition-all duration-300 relative">
 	<Container>
 		<div class="w-full flex justify-between items-center">
 			<Link href="/" class="h-8">
@@ -30,7 +31,10 @@ const currentPath = new URL(Astro.request.url).pathname;
 				{
 					navLinks.map((navLink) => (
 						<NavLink href={navLink.href}>
-							<p class={`${currentPath === navLink.href ? 'typography' : 'typography-secondary'} m-0`}>{navLink.title}</p>
+							<p
+								class={`${currentPath === navLink.href ? 'typography' : 'typography-secondary'} m-0`}>
+								{navLink.title}
+							</p>
 						</NavLink>
 					))
 				}

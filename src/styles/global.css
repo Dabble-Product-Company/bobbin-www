@@ -5,7 +5,7 @@
 @layer base {
 	html,
 	body {
-		@apply font-sans overscroll-none;
+		@apply overscroll-none font-sans;
 	}
 	:root {
 		--overscroll-behavior: none;
@@ -36,7 +36,7 @@
 		@apply relative right-[50%] left-[50%] -mr-[50vw] -ml-[50vw] w-[100vw];
 	}
 	.typography {
-		@apply text-pretty ;
+		@apply text-pretty;
 		p {
 			@apply mt-4 text-base leading-relaxed md:text-lg;
 		}
@@ -66,14 +66,12 @@
 		}
 		h5 {
 			font-size: var(--text-base);
-
 		}
 		h6 {
 			font-size: var(--text-sm);
-
 		}
 		a {
-			@apply underline decoration-2 decoration-neutral-300 hover:decoration-neutral-900 underline-offset-2;
+			@apply underline decoration-neutral-300 decoration-2 underline-offset-2 hover:decoration-neutral-900;
 		}
 	}
 	.typography-secondary {
@@ -83,7 +81,7 @@
 		font-style: italic;
 		font-variation-settings: 'ital' 1;
 	}
-	.dabble-mask{
+	.dabble-mask {
 		mask-image: url('../../dabble.svg');
 		mask-size: 100%;
 		mask-repeat: no-repeat;
