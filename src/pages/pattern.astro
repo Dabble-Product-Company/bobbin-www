@@ -1,23 +1,22 @@
 ---
-import Layout from "../layouts/Page.astro";
-import Container from "../components/Container.astro";
-import Content from "../links/pattern.md";
+import Layout from '../layouts/Page.astro';
+import Container from '../components/Container.astro';
+import Content from '../links/pattern.md';
 
 const seo = {
-  title: "The Magnolia Dress Pattern — Seamwork Maker Studio",
-  description: "The Magnolia Dress from Seamwork Maker Studio is a romantic, vintage-inspired midi dress featuring a fitted bodice, gathered skirt, and delicate puff sleeves. Perfect for both special occasions and elevated everyday wear, this pattern offers a timeless silhouette that flatters many body types.",
-  product: {
-    brand: "Seamwork Maker Studio",
-    name: "The Magnolia Dress",
-    url: "https://bobbin.app/pattern"
-  }
-}
+	title: 'The Magnolia Dress Pattern — Seamwork Maker Studio',
+	description:
+		'The Magnolia Dress from Seamwork Maker Studio is a romantic, vintage-inspired midi dress featuring a fitted bodice, gathered skirt, and delicate puff sleeves. Perfect for both special occasions and elevated everyday wear, this pattern offers a timeless silhouette that flatters many body types.',
+	product: {
+		brand: 'Seamwork Maker Studio',
+		name: 'The Magnolia Dress',
+		url: 'https://bobbin.app/pattern',
+	},
+};
 ---
 
 <Layout seo={seo}>
-  <Container>
-    <div class="prose prose-neutral dark:prose-invert">
-        <Content />
-      </div>
-  </Container>
+	<Container>
+		<Content />
+	</Container>
 </Layout>

@@ -1,5 +1,15 @@
 {
-  "tabWidth": 2,
-  "useTabs": false,
-  "bracketSameLine": true
+	"tabWidth": 4,
+	"useTabs": true,
+	"bracketSameLine": true,
+	"singleQuote": true,
+	"plugins": ["prettier-plugin-tailwindcss", "prettier-plugin-astro"],
+	"overrides": [
+		{
+			"files": "*.astro",
+			"options": {
+				"parser": "astro"
+			}
+		}
+	]
 }

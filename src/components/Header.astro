@@ -1,7 +1,44 @@
 ---
-import Link from "./Link.astro";
+import Link from './Link.astro';
+import NavLink from './NavLink.astro';
+import Container from './Container.astro';
+const navLinks: { title: string; href: string }[] = [
+	{
+		title: 'Features',
+		href: '/',
+	},
+	{
+		title: 'Contact',
+		href: 'mailto:info@bobbin.app',
+	},
+	{
+		title: 'FAQ',
+		href: '/faq',
+	},
+];
+
+const currentPath = new URL(Astro.request.url).pathname;
 ---
 
-<header class="flex justify-center w-full m-auto p-8 border-b border-neutral-200 dark:border-neutral-800">
-  <Link href="/">Bobbin</Link>
+<header
+	class="flex w-full m-auto px-2 md:px-0 py-6 md:py-8 bg-transparent hover:bg-neutral-100 transition-all duration-300 relative">
+	<Container>
+		<div class="w-full flex justify-between items-center">
+			<Link href="/" class="h-8">
+				<img src="/logo.svg" alt="Bobbin" class="h-4" />
+			</Link>
+			<div class="flex gap-4 md:gap-8 font-semibold">
+				{
+					navLinks.map((navLink) => (
+						<NavLink href={navLink.href}>
+							<p
+								class={`${currentPath === navLink.href ? 'typography' : 'typography-secondary'} m-0`}>
+								{navLink.title}
+							</p>
+						</NavLink>
+					))
+				}
+			</div>
+		</div>
+	</Container>
 </header>

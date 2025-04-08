@@ -1,0 +1,67 @@
+---
+interface Props {
+	eyebrow: string;
+	title: string;
+	description: string;
+	imageSrc: string;
+	backgroundImageSrc: string;
+	imageAlt: string;
+	isReversed?: boolean;
+}
+
+const {
+	eyebrow,
+	title,
+	description,
+	imageSrc,
+	backgroundImageSrc,
+	imageAlt,
+	isReversed = false,
+} = Astro.props;
+
+const iconName = eyebrow.toLowerCase().replace(' ', '-');
+---
+
+<div class="full-width">
+	<div
+		class={`flex flex-col md:flex-row gap-8 my-8 p-8 relative max-w-6xl mx-auto ${isReversed ? 'md:flex-row-reverse' : ''}`}>
+		<div
+			class="flex flex-col gap-4 my-auto w-full grow max-h-[400px] md:max-h-[560px] static justify-center items-center">
+			<img
+				src={imageSrc}
+				alt={imageAlt}
+				class={`object-contain h-full w-full max-h-[400px] md:max-h-[560px] p-0 drop-shadow-md intersect:rotate-0 transition duration-500 ease-in intersect-half ${isReversed ? 'rotate-3' : '-rotate-3'}`}
+			/>
+			<img
+				src={backgroundImageSrc}
+				alt={imageAlt}
+				class="absolute top-0 object-cover -z-10 h-full max-h-[400px] md:max-h-[560px]"
+			/>
+		</div>
+		<div
+			class="flex text-balance w-full max-w-md relative self-center h-auto">
+			<div class="flex flex-col gap-4 my-auto p-8 md:p-16">
+				<h6
+					class="text-balance m-0 uppercase font-semibold tracking-widest">
+					{eyebrow}
+				</h6>
+				<h3 class="text-balance m-0 transition-all duration-400">
+					{title}
+				</h3>
+				<p class="typography-secondary m-0">
+					{description}
+				</p>
+			</div>
+			<img
+				src={`../../features/${iconName}.svg`}
+				alt={`${eyebrow} icon`}
+				class="absolute z-0 right-0 w-40 h-40 scale-50 md:scale-100 opacity-5 m-2 md:m-8"
+			/>
+			<img
+				src="../../features/ripped-bg.png"
+				alt={imageAlt}
+				class={`absolute top-0 object-fill -z-10 w-full h-full ${isReversed ? 'rotate-180' : ''}`}
+			/>
+		</div>
+	</div>
+</div>

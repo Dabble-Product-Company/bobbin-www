@@ -1,21 +1,34 @@
 import { defineConfig } from 'astro/config';
-
-import tailwind from "@astrojs/tailwind";
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import partytown from '@astrojs/partytown';
-
 import cloudflare from '@astrojs/cloudflare';
+import react from '@astrojs/react';
+import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
-  site: 'https://bobbin.app/',
+	site: 'https://bobbin.app/',
 
-  integrations: [tailwind(), mdx(), sitemap(), partytown({
-    config: {
-      forward: ['dataLayer.push']
-    }
-  })],
+	integrations: [
+		mdx(),
+		sitemap(),
+		partytown({
+			config: {
+				forward: ['dataLayer.push'],
+			},
+		}),
+		react(),
+	],
 
-  output: 'server',
-  adapter: cloudflare(),
+	output: 'server',
+	adapter: cloudflare(),
+
+	vite: {
+		plugins: [tailwindcss()],
+		resolve: {
+			alias: import.meta.env.PROD && {
+				'react-dom/server': 'react-dom/server.edge',
+			},
+		},
+	},
 });

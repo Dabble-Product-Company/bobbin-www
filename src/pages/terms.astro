@@ -1,25 +1,15 @@
 ---
-import Layout from "../layouts/Page.astro";
-import Container from "../components/Container.astro";
-import settings from "../data/settings";
-import Content from "../links/terms.md";
+import Layout from '../layouts/Page.astro';
+import settings from '../data/settings';
+import Content from '../links/terms.md';
 
 const title = settings.title;
 const description = settings.description;
-
-const seo = {
-  title: title,
-  description: description
-}
+const seo = { title: title, description: description };
 ---
 
-<Layout
-  seo={seo}
->
-  <Container>
-    <div class="prose prose-neutral dark:prose-invert">
-      <Content />
-    </div>
-    
-  </Container>
+<Layout seo={seo}>
+	<div class="max-w-2xl mx-0">
+		<Content />
+	</div>
 </Layout>

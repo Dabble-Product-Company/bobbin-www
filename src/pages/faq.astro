@@ -1,0 +1,41 @@
+---
+import Layout from '../layouts/Page.astro';
+import Container from '../components/Container.astro';
+import Link from '@/components/Link.astro';
+import { Accordion } from '@/components/Accordion';
+
+const accordionData = [
+	{
+		title: 'When will Bobbin be available?',
+		description:
+			'Bobbin is currently in beta. It will be available in the App Store later this year.',
+	},
+	{
+		title: 'How much will it cost?',
+		description:
+			'Bobbin is free to download and use while in beta. Pricing will be announced in the near future, but the app will be available as a one-time purchase — no subscriptions.',
+	},
+	{
+		title: 'Can I purchase sewing patterns on Bobbin?',
+		description:
+			'No, Bobbin does not sell any sewing patterns or supplies. Any patterns in the app are sourced from the web and may include product links to purchase from pattern makers directly.',
+	},
+	{
+		title: 'What platforms will Bobbin be available on?',
+		description:
+			'At launch, Bobbin will be available on iOS and iPadOS. Support for Android and other platforms is TBD.',
+	},
+];
+---
+
+<Layout>
+	<div class="max-w-2xl mx-0">
+		<h1>Frequently Asked Questions</h1>
+		<p>
+			Have a different question? Contact us at <Link
+				href="mailto:support@bobbin.app">support@bobbin.app</Link
+			>
+		</p>
+		<Accordion data={accordionData} client:idle />
+	</div>
+</Layout>
