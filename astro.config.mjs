@@ -6,29 +6,26 @@ import cloudflare from '@astrojs/cloudflare';
 import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
+import favicons from 'astro-favicons';
+
 export default defineConfig({
-	site: 'https://bobbin.app/',
+    site: 'https://bobbin.app/',
 
-	integrations: [
-		mdx(),
-		sitemap(),
-		partytown({
-			config: {
-				forward: ['dataLayer.push'],
-			},
-		}),
-		react(),
-	],
+    integrations: [mdx(), sitemap(), partytown({
+        config: {
+            forward: ['dataLayer.push'],
+        },
+		}), react(), favicons()],
 
-	output: 'server',
-	adapter: cloudflare(),
+    output: 'server',
+    adapter: cloudflare(),
 
-	vite: {
-		plugins: [tailwindcss()],
-		resolve: {
-			alias: import.meta.env.PROD && {
-				'react-dom/server': 'react-dom/server.edge',
-			},
-		},
-	},
+    vite: {
+        plugins: [tailwindcss()],
+        resolve: {
+            alias: import.meta.env.PROD && {
+                'react-dom/server': 'react-dom/server.edge',
+            },
+        },
+    },
 });
