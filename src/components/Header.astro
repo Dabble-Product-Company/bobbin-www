@@ -1,7 +1,8 @@
 ---
 import Link from './Link.astro';
+import Button from './Button.astro';
 import NavLink from './NavLink.astro';
-import Container from './Container.astro';
+import Container from './container.astro';
 const navLinks: { title: string; href: string }[] = [
 	{
 		title: 'Features',
@@ -27,7 +28,7 @@ const currentPath = new URL(Astro.request.url).pathname;
 			<Link href="/" class="h-8">
 				<img src="/logo.svg" alt="Bobbin" class="h-4" />
 			</Link>
-			<div class="flex gap-4 md:gap-8 font-semibold">
+			<div class="flex gap-4 md:gap-8 font-semibold m-0 p-0 items-center">
 				{
 					navLinks.map((navLink) => (
 						<NavLink href={navLink.href}>
@@ -38,6 +39,9 @@ const currentPath = new URL(Astro.request.url).pathname;
 						</NavLink>
 					))
 				}
+				<Button href="https://apps.apple.com/us/app/bobbin-sewing-organizer/id6744337422?platform=iphone" external>
+					Download
+				</Button>
 			</div>
 		</div>
 	</Container>
